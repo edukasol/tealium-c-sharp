@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using TealiumCSharp;
+using Tealium_Csharp;
 
 // INTEGRATION TESTS ... REALLY
 

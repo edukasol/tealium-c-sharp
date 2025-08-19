@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using TealiumCSharp;
+using Tealium_Csharp;
 
 namespace Tests
 {
@@ -14,7 +14,7 @@ namespace Tests
 		public void TestsPublicCommandsReturn()
 		{
 
-			ModuleResponses responses = utils.moduleReturnsFromAllBaseCalls(module);
+			ModuleResponses responses = utils.ModuleReturnsFromAllBaseCalls(module);
 
 			Assert.True(responses.Enabled, "Failed to enable.");
 			Assert.True(responses.Disabled, "Failed to disable.");
@@ -26,7 +26,7 @@ namespace Tests
 		public void TestsPublicCommandsRespectNonEnabledState()
 		{
 
-			ModuleResponses responses = utils.moduleReturnsFromAllBaseCallsFromANonEnabledState(module);
+			ModuleResponses responses = utils.ModuleReturnsFromAllBaseCallsFromANonEnabledState(module);
 
 			Assert.False(responses.Enabled, "Unexpectedly enabled.");
 			Assert.False(responses.Disabled, "Unexpectedly disabled.");
@@ -38,7 +38,7 @@ namespace Tests
 		public void TestsPublicCommandsRespectDisableCommand()
 		{
 
-			ModuleResponses responses = utils.moduleReturnsFromAllBaseCallsAfterDisable(module);
+			ModuleResponses responses = utils.ModuleReturnsFromAllBaseCallsAfterDisable(module);
 
 			Assert.True(responses.Enabled, "Enabled not called.");
 			Assert.True(responses.Disabled, "Disabled not called.");

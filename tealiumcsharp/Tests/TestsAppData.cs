@@ -1,9 +1,8 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using TealiumCSharp;
+using Tealium_Csharp;
 
 
 namespace Tests
@@ -16,9 +15,10 @@ namespace Tests
 		public void TestsAddAndGetData()
 		{
 			AppData appData = new AppData();
-			Dictionary<string, object> testSubDictionary = new Dictionary<string, object>();
-			testSubDictionary.Add("key","value");
-
+			Dictionary<string, object> testSubDictionary = new Dictionary<string, object>
+            {
+                { "key", "value" }
+            };
 			appData.AddData(testSubDictionary);
 			appData.AddData(testSubDictionary);
 

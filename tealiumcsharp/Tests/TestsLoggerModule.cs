@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using TealiumCSharp;
+using Tealium_Csharp;
 
 namespace Tests
 {
@@ -14,7 +14,7 @@ namespace Tests
 		public void TestsPublicCommandsReturn()
 		{
 			LoggerModule module = new LoggerModule();
-			ModuleResponses responses = utils.moduleReturnsFromAllBaseCalls(module);
+			ModuleResponses responses = utils.ModuleReturnsFromAllBaseCalls(module);
 
 			Assert.True(responses.Enabled == true, "Failed to enable.");
 			Assert.True(responses.Disabled == true, "Failed to disable.");

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using TealiumCSharp;
+using Tealium_Csharp;
 using System.Collections.Generic;
 
 
@@ -16,7 +16,7 @@ namespace Tests
 		public void TestsPublicCommandsReturn()
 		{ 
 			CollectModule module = new CollectModule();
-			ModuleResponses responses = utils.moduleReturnsFromAllBaseCalls(module);
+			ModuleResponses responses = utils.ModuleReturnsFromAllBaseCalls(module);
 
 			Assert.True(responses.Enabled, "Failed to enable.");
 			Assert.True(responses.Disabled, "Failed to disable.");

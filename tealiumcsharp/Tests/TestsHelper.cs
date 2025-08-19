@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using TealiumCSharp;
+using Tealium_Csharp;
 
 namespace Tests
 {
@@ -14,11 +14,10 @@ namespace Tests
 
 	public class TestsHelper : ModuleDelegate
 	{
-
 		ModuleResponses responses = new ModuleResponses();
 
 		// All responses should = true
-		public ModuleResponses moduleReturnsFromAllBaseCalls(Module module)
+		public ModuleResponses ModuleReturnsFromAllBaseCalls(Module module)
 		{
 
 			responses.Enabled = false;
@@ -33,19 +32,12 @@ namespace Tests
 			module.Enable(testConfig);
 
 			Dictionary<string, object> testDict = new Dictionary<string, object>();
-			Track testTrack = new Track(testDict,
-										null,
-										null);
-
-
+			
+			Track testTrack = new Track(testDict, null, null);
 			module.Track(testTrack);
 
 			Process testProcess = new Process();
-
-			module.HandleReport(module,
-								testProcess);
-
-
+			module.HandleReport(module, testProcess);
 
 			module.Disable();
 
@@ -54,7 +46,7 @@ namespace Tests
 		}
 
 		// All responses should = false
-		public ModuleResponses moduleReturnsFromAllBaseCallsFromANonEnabledState(Module module)
+		public ModuleResponses ModuleReturnsFromAllBaseCallsFromANonEnabledState(Module module)
 		{
 			responses.Enabled = false;
 			responses.Disabled = false;
@@ -64,26 +56,18 @@ namespace Tests
 			module.ModuleDelegate = this;
 
 			Dictionary<string, object> testDict = new Dictionary<string, object>();
-			Track testTrack = new Track(testDict,
-										null,
-										null);
-
-
+			
+			Track testTrack = new Track(testDict, null, null);
 			module.Track(testTrack);
 
 			Process testProcess = new Process();
-
-			module.HandleReport(module,
-								testProcess);
-
-
+			module.HandleReport(module, testProcess);
 
 			return responses;
-
 		}
 
 		// Tracked and Reported should = false
-		public ModuleResponses moduleReturnsFromAllBaseCallsAfterDisable(Module module)
+		public ModuleResponses ModuleReturnsFromAllBaseCallsAfterDisable(Module module)
 		{
 			responses.Enabled = false;
 			responses.Disabled = false;
@@ -92,28 +76,17 @@ namespace Tests
 
 			module.ModuleDelegate = this;
 
-
 			Config testConfig = new Config("test", "test", "test");
-
-			module.Enable(testConfig);
-
 			module.Enable(testConfig);
 			module.Disable();
 
 			Dictionary<string, object> testDict = new Dictionary<string, object>();
-			Track testTrack = new Track(testDict,
-										null,
-										null);
-
-
+			
+			Track testTrack = new Track(testDict, null, null);
 			module.Track(testTrack);
 
 			Process testProcess = new Process();
-
-			module.HandleReport(module,
-								testProcess);
-
-
+			module.HandleReport(module, testProcess);
 
 			return responses;
 
@@ -121,8 +94,7 @@ namespace Tests
 
 		// MODULE DELEGATES
 
-		public void ModuleFinished(Module module,
-						   Process process)
+		public void ModuleFinished(Module module, Process process)
 		{
 			if (process.type == ProcessType.Enable)
 			{
@@ -136,26 +108,19 @@ namespace Tests
 			{
 				responses.Tracked = true;
 			}
-
 		}
 
-		public void ModuleFinishedReport(Module fromModule,
-										 Module module,
-										 Process process)
+		public void ModuleFinishedReport(Module fromModule, Module module, Process process)
 		{
 			responses.Reported = true;
 		}
 
-		public void ModuleRequests(Module module,
-								   Process process)
+		public void ModuleRequests(Module module,Process process)
 		{
-
 		}
 
-		public static bool AreDictionariesEqual(Dictionary<string, object> dict,
-												Dictionary<string, object> dict2)
+		public static bool AreDictionariesEqual(Dictionary<string, object> dict, Dictionary<string, object> dict2)
 		{
-
 			if (dict.Count != dict2.Count)
 			{
 				System.Diagnostics.Debug.WriteLine("TestsHelper: AreDictionariesEqual: dict count mismatch.");
@@ -165,7 +130,6 @@ namespace Tests
 			//foreach (var pair in dict)
 			foreach (KeyValuePair<string, object> kvp in dict)
 			{
-
 				object dictValue = kvp.Value;
 				object dict2Value = dict2[kvp.Key];
 
@@ -173,32 +137,27 @@ namespace Tests
 				{
 					return false;
 				}
-
 				if (dictValue.GetType() != dict2Value.GetType())
 				{
 					return false;
 				}
-
-				if (dictValue is System.String)
+				if (dictValue is string)
 				{
 					if (dictValue != dict2Value)
 					{
 						return false;
 					}
 				}
-
-				if (dictValue is System.String[])
+				if (dictValue is string[])
 				{
 					return Enumerable.SequenceEqual(dictValue as string[], dict2Value as string[]);
 				}
-
 			}
 
 			return true;
 		}
 
-		public static bool DictionaryContainsSubDictionary(Dictionary<string, object> dictionary,
-														   Dictionary<string, object> subDictionary)
+		public static bool DictionaryContainsSubDictionary(Dictionary<string, object> dictionary, Dictionary<string, object> subDictionary)
 		{
 			foreach (KeyValuePair<string, object> kvp in subDictionary)
 			{
@@ -216,7 +175,7 @@ namespace Tests
 					return false;
 				}
 
-				if (dictValue is System.String)
+				if (dictValue is string)
 				{
 					if (dictValue != dict2Value)
 					{
@@ -224,11 +183,10 @@ namespace Tests
 					}
 				}
 
-				if (dictValue is System.String[])
+				if (dictValue is string[])
 				{
 					return Enumerable.SequenceEqual(dictValue as string[], dict2Value as string[]);
 				}
-
 			}
 			return true;
 		}

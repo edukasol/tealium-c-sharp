@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using TealiumCSharp;
+using Tealium_Csharp;
 using System.Collections.Generic;
 
 namespace Sample

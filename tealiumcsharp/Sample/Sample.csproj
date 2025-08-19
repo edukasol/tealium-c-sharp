@@ -35,13 +35,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\tealiumcsharp\tealiumcsharp.csproj">
-      <Project>{93AE41B3-28F0-4E72-BAAA-BA3410741BED}</Project>
-      <Name>TealiumCSharp</Name>
-    </ProjectReference>
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <ProjectReference Include="..\Tealium-Csharp\Tealium-Csharp.csproj">
+      <Project>{C3AF2F4A-437B-48F9-B9DC-F98E8BA7A85D}</Project>
+      <Name>Tealium-Csharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

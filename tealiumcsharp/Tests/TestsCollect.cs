@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using TealiumCSharp;
+using Tealium_Csharp;
 namespace Tests
 {
 	[TestFixture()]
